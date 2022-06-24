@@ -8,6 +8,13 @@
 # Test binary, built with `go test -c`
 *.test
 
+# Binary
+main
+
+# IDE
+.idea/
+*.iml
+
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
