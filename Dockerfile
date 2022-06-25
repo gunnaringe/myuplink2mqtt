@@ -10,7 +10,7 @@ RUN env CGO_ENABLED=0 go build -ldflags '-w -s' -o /go/bin/app cmd/main.go
 
 RUN if command -v upx &> /dev/null; then upx --ultra-brute /go/bin/app; fi
 
-FROM gcr.io/distroless/static
+FROM alpine:latest
 LABEL maintainer="Gunnar Inge G. Sortland <gunnar.inge@sort.land>"
 COPY --from=build /go/bin/app /
 ENTRYPOINT [ "/app"]
