@@ -1,6 +1,7 @@
-FROM golang:alpine AS build
-RUN apk add git
-RUN apk add --no-cache $(apk search --no-cache | grep -q ^upx && echo -n upx)
+FROM golang:latest AS build
+RUN echo "nobody:x:65534:65534:Nobody:/:" > /etc_passwd
+
+RUN apt-get install git
 
 WORKDIR /go/src/app
 COPY . /go/src/app
@@ -8,9 +9,11 @@ COPY . /go/src/app
 RUN go get -d -v ./...
 RUN env CGO_ENABLED=0 go build -ldflags '-w -s' -o /go/bin/app cmd/main.go
 
-RUN if command -v upx &> /dev/null; then upx --ultra-brute /go/bin/app; fi
-
-FROM alpine:latest
+FROM scratch
 LABEL maintainer="Gunnar Inge G. Sortland <gunnar.inge@sort.land>"
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=build /etc/passwd /etc/passwd
+USER nobody
+
 COPY --from=build /go/bin/app /
 ENTRYPOINT [ "/app"]
