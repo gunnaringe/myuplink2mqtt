@@ -15,7 +15,9 @@ func main() {
 
 	var clientId string
 	var clientSecret string
+
 	var mqttServer string
+
 	app := &cli.App{
 		Flags: []cli.Flag{
 			&cli.StringFlag{
@@ -31,6 +33,13 @@ func main() {
 				EnvVars:     []string{"CLIENT_SECRET"},
 				Destination: &clientSecret,
 				Required:    true,
+			},
+			&cli.StringFlag{
+				Name:        "homeassistant-discovery-topic",
+				Usage:       "Home Assistant MQTT Discovery topic",
+				EnvVars:     []string{"HOMEASSISTANT_DISCOVERY_TOPIC"},
+				Required:    false,
+				DefaultText: "homeassistant",
 			},
 			&cli.StringFlag{
 				Name:        "mqtt-server",

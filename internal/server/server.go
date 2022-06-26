@@ -120,6 +120,34 @@ func (r *Server) Run() error {
 			ValueTemplate:       "{{ value_json.energy }}",
 		}
 		PublishSensor(deviceId, energy, "energy")
+
+		power := &homeassistant.Sensor{
+			Availability:        []homeassistant.Availability{*availability},
+			DeviceClass:         "power",
+			EnabledByDefault:    true,
+			JSONAttributesTopic: stateTopic,
+			Name:                fmt.Sprintf("%s estimated power", name),
+			StateClass:          "measurement",
+			StateTopic:          stateTopic,
+			UniqueID:            fmt.Sprintf("%s_%s_%s", name, "power", "myuplink2mqtt"),
+			UnitOfMeasurement:   "W",
+			ValueTemplate:       "{{ value_json.power }}",
+		}
+		PublishSensor(deviceId, power, "power")
+
+		storedEnergy := &homeassistant.Sensor{
+			Availability:        []homeassistant.Availability{*availability},
+			DeviceClass:         "energy",
+			EnabledByDefault:    true,
+			JSONAttributesTopic: stateTopic,
+			Name:                fmt.Sprintf("%s stored energy", name),
+			StateClass:          "measurement",
+			StateTopic:          stateTopic,
+			UniqueID:            fmt.Sprintf("%s_%s_%s", name, "stored_energy", "myuplink2mqtt"),
+			UnitOfMeasurement:   "kWh",
+			ValueTemplate:       "{{ value_json.stored_energy }}",
+		}
+		PublishSensor(deviceId, storedEnergy, "stored-energy")
 	}
 
 	ticker := time.NewTicker(10 * time.Second)
@@ -186,13 +214,14 @@ func (r *Server) reportStatus(deviceId string) {
 	}
 
 	status := &Status{
-		Energy:      *parameters["303"].Value,
-		TargetTemp:  *parameters["527"].Value,
-		CurrentTemp: *parameters["528"].Value,
-		Power:       *parameters["400"].Value,
-		MaxPower:    maxPower,
-		Mode:        mode,
-		Action:      action,
+		Energy:       *parameters["303"].Value,
+		StoredEnergy: *parameters["302"].Value,
+		TargetTemp:   *parameters["527"].Value,
+		CurrentTemp:  *parameters["528"].Value,
+		Power:        *parameters["400"].Value,
+		MaxPower:     maxPower,
+		Mode:         mode,
+		Action:       action,
 	}
 	PublishStatus(deviceId, status)
 	PublishState()
@@ -201,6 +230,7 @@ func (r *Server) reportStatus(deviceId string) {
 	fmt.Println("======================================================")
 	fmt.Printf("Timestamp: %v kWh\n", *parameters["303"].Timestamp)
 	fmt.Printf("Energy used: %v kWh\n", *parameters["303"].Value)
+	fmt.Printf("Stored used: %v kWh\n", *parameters["302"].Value)
 	fmt.Printf("Current power (estimated): %v W\n", *parameters["400"].Value)
 	fmt.Printf("Element 1: %v\n", *parameters["505"].StrVal)
 	fmt.Printf("Element 2: %v\n", *parameters["506"].StrVal)
@@ -237,13 +267,14 @@ func (r *Server) SetTargetTemp(deviceId string, targetTemp float64) {
 }
 
 type Status struct {
-	Energy      float64 `json:"energy,omitempty"`
-	TargetTemp  float64 `json:"target_temp,omitempty"`
-	CurrentTemp float64 `json:"current_temp,omitempty"`
-	Power       float64 `json:"power,omitempty"`
-	MaxPower    float64 `json:"max_power,omitempty"`
-	Mode        string  `json:"mode,omitempty"`
-	Action      string  `json:"action,omitempty"`
+	Energy       float64 `json:"energy,omitempty"`
+	StoredEnergy float64 `json:"stored_energy,omitempty"`
+	TargetTemp   float64 `json:"target_temp,omitempty"`
+	CurrentTemp  float64 `json:"current_temp,omitempty"`
+	Power        float64 `json:"power,omitempty"`
+	MaxPower     float64 `json:"max_power,omitempty"`
+	Mode         string  `json:"mode,omitempty"`
+	Action       string  `json:"action,omitempty"`
 }
 
 func findNamedMatches(regex *regexp.Regexp, str string) map[string]string {
