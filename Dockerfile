@@ -1,6 +1,4 @@
 FROM golang:latest AS build
-RUN echo "nobody:x:65534:65534:Nobody:/:" > /etc_passwd
-
 RUN apt-get install git
 
 WORKDIR /go/src/app
