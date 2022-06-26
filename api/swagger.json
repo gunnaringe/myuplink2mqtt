@@ -56,7 +56,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/internal/crm/productregistration/{serialNumber}": { },
@@ -113,7 +113,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/devices/{deviceId}/smart-home-categories": {
@@ -391,7 +391,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/devices/{deviceId}/smart-home-zones": {
@@ -462,7 +462,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/devices/{deviceId}/points": {
@@ -541,7 +541,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       },
       "patch": {
         "tags": [
@@ -641,7 +641,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/devices/{deviceId}/zones/{zoneId}": {
@@ -741,7 +741,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/devices/{deviceId}/firmware": {
@@ -793,7 +793,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/firmware/{firmwareTypeId}/version/{version}/download": {
@@ -859,7 +859,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/oauth/token": {
@@ -884,7 +884,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/oauth/authorize": {
@@ -909,7 +909,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       },
       "post": {
         "tags": [
@@ -932,7 +932,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/connect/authorize/callback": {
@@ -957,7 +957,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/oauth/login": {
@@ -982,7 +982,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       },
       "post": {
         "tags": [
@@ -1005,7 +1005,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/oauth/consent": {
@@ -1030,7 +1030,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       },
       "post": {
         "tags": [
@@ -1053,7 +1053,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/oauth/error": {
@@ -1078,7 +1078,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/assets/identity-server/{any}": {
@@ -1113,7 +1113,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/.well-known/openid-configuration": {
@@ -1138,7 +1138,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/.well-known/openid-configuration/jwks": {
@@ -1163,7 +1163,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/systems/{systemId}/notifications/active": {
@@ -1245,7 +1245,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/systems/{systemId}/notifications": {
@@ -1327,7 +1327,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/systems/{systemId}/notifications/{notificationId}": { },
@@ -1354,7 +1354,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/systems/{systemId}/subscriptions": {
@@ -1416,7 +1416,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/productregistration": { },
@@ -1506,7 +1506,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     },
     "/v2/systems/{systemId}": { },
@@ -1577,7 +1577,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       },
       "get": {
         "tags": [
@@ -1628,7 +1628,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups": 
+        "authorized-groups":
       }
     }
   },
