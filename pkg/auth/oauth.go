@@ -36,7 +36,7 @@ func (s *Auth) Token() string {
 	return t.AccessToken
 }
 
-func (s *Auth) Intercept(ctx context.Context, req *http.Request) error {
+func (s *Auth) Intercept(_ context.Context, req *http.Request) error {
 	token, err := s.tokenSource.Token()
 	if err != nil {
 		return err

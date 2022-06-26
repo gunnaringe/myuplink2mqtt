@@ -61,8 +61,8 @@ func (r *Server) Run() error {
 		update := &Update{}
 		err := json.Unmarshal(msg.Payload(), update)
 		if err != nil {
-			// TODO: Log and ignore
-			panic(err)
+			r.logger.Warnf("Could not unmarshal payload: topic=%s", msg.Topic())
+			return
 		}
 
 		matches := findNamedMatches(CommandTopicRegex, msg.Topic())
@@ -144,7 +144,7 @@ func (r *Server) getDeviceIds() []string {
 	}
 	resp, err := r.client.GetV2SystemsMeWithResponse(context.Background(), params)
 	if err != nil {
-		panic(err)
+		r.logger.Fatalf("Could not load systems - Shutting down")
 	}
 	result := *resp.JSON200
 
@@ -162,7 +162,7 @@ func (r *Server) reportStatus(deviceId string) {
 	params := &myuplink.GetV2DevicesDeviceIdPointsParams{}
 	resp, err := r.client.GetV2DevicesDeviceIdPointsWithResponse(context.Background(), deviceId, params)
 	if err != nil {
-		panic(err)
+		r.logger.Warn("Error fetching status", zap.String("device", deviceId))
 	}
 	result := *resp.JSON200
 	parameters := make(map[string]myuplink.ParameterData)
@@ -224,11 +224,15 @@ func (r *Server) SetTargetTemp(deviceId string, targetTemp float64) {
 
 	response, err := DefaultClient.Do(request)
 	if err != nil {
-		panic(err)
+		r.logger.Warn("Could not update temperature", zap.String("device", deviceId))
+		return
 	}
 
 	if response.StatusCode != 200 {
-		r.logger.Warnw("Invalid response", "status", response.Status)
+		r.logger.Warn("Could not update temperature",
+			zap.String("device", deviceId),
+			zap.String("http_status", response.Status),
+		)
 	}
 }
 
