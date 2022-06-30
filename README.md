@@ -41,7 +41,7 @@ Name is currently hard coded to be _Høiax Connected_, and it will in a naive wa
 ### Entities exposed
 | Entity                                 |                                                                                         |
 |----------------------------------------|-----------------------------------------------------------------------------------------|
-| climate.hoiax_connected                | Read current temperture, current state (on/off/idle) set target temperatur, turn on/off |
+| climate.hoiax_connected                | <ul><li>Get current temperature</li><li>Get current state (on/off/idle)</li><li>Set target temperature</li><li>Set on/off</li></ul> |
 | sensor.hoiax_connected_energy          | Counter for total energy used (kWh)                                                     |
 | sensor.hoiax_connected_estimated_power | Gauge for current power usage (estimated by relay state + power of each element)        |
 | sensor.hoiax_connected_stored_energy   | Gauge for current energy stored in the tank                                             |
