@@ -39,12 +39,12 @@ It will publish discovery messages to the MQTT broker using topic prefix `homeas
 Name is currently hard coded to be _Høiax Connected_, and it will in a naive way try to add all found devices as a Høiax Connected water header.
 
 ### Entities exposed
-| Entity                                 |                                                                                         |
+| Entity                                 | Description                                                                             |
 |----------------------------------------|-----------------------------------------------------------------------------------------|
 | climate.hoiax_connected                | <ul><li>Get current temperature</li><li>Get current state (on/off/idle)</li><li>Set target temperature</li><li>Set on/off</li></ul> |
 | sensor.hoiax_connected_energy          | Counter for total energy used (kWh)                                                     |
-| sensor.hoiax_connected_estimated_power | Gauge for current power usage (estimated by relay state + power of each element)        |
-| sensor.hoiax_connected_stored_energy   | Gauge for current energy stored in the tank                                             |
+| sensor.hoiax_connected_estimated_power | Gauge for current estimatd power usage (W)                                              |
+| sensor.hoiax_connected_stored_energy   | Gauge for current energy stored in the tank (kWh)                                       |
 
 ## Limitations
 - No health check endpoint or Docker healtcheck script
