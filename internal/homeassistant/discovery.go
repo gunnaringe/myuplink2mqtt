@@ -17,6 +17,21 @@ type Sensor struct {
 	ValueTemplate       string         `json:"value_template,omitempty"`
 }
 
+type Selection struct {
+	Availability        []Availability `json:"availability,omitempty"`
+	UniqueID            string         `json:"unique_id,omitempty"`
+	Name                string         `json:"name,omitempty"`
+	EnabledByDefault    bool           `json:"enabled_by_default,omitempty"`
+	Icon                string         `json:"icon,omitempty"`
+	CommandTemplate     string         `json:"command_template,omitempty"`
+	CommandTopic        string         `json:"command_topic,omitempty"`
+	JSONAttributesTopic string         `json:"json_attributes_topic,omitempty"`
+	Optimistic          bool           `json:"optimistic,omitempty"`
+	Options             []string       `json:"options,omitempty"`
+	StateTopic          string         `json:"state_topic,omitempty"`
+	ValueTemplate       string         `json:"value_template,omitempty"`
+}
+
 type Hvac struct {
 	Availability               []Availability `json:"availability,omitempty"`
 	UniqueID                   string         `json:"unique_id,omitempty"`

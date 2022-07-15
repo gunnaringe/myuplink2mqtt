@@ -7,8 +7,6 @@ import (
 	"os"
 )
 
-//go:generate oapi-codegen --package=myuplink -o ./myuplink.gen.go https://api.myuplink.com/swagger/docs/public-v2/swagger.json
-
 func main() {
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()

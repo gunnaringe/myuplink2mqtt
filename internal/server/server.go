@@ -11,6 +11,7 @@ import (
 	"github.com/gunnaringe/myuplink2mqtt/pkg/auth"
 	"github.com/gunnaringe/myuplink2mqtt/pkg/myuplink"
 	"go.uber.org/zap"
+	"io/ioutil"
 	"net/http"
 	"regexp"
 	"time"
@@ -168,13 +169,29 @@ func (r *Server) Run() error {
 func (r *Server) getDeviceIds() []string {
 	params := &myuplink.GetV2SystemsMeParams{
 		Page:         pointer.ToInt32(1),
-		ItemsPerPage: pointer.ToInt32(1000),
+		ItemsPerPage: pointer.ToInt32(100),
 	}
-	resp, err := r.client.GetV2SystemsMeWithResponse(context.Background(), params)
+
+	resp, err := r.client.GetV2SystemsMe(context.Background(), params)
 	if err != nil {
-		r.logger.Fatalf("Could not load systems - Shutting down")
+		r.logger.Fatalw(
+			"Could not load systems - Shutting down",
+			zap.Error(err),
+		)
 	}
-	result := *resp.JSON200
+	defer resp.Body.Close()
+
+	bodyBytes, err := ioutil.ReadAll(resp.Body)
+
+	var result myuplink.PagedSystemResult
+	err = json.Unmarshal(bodyBytes, &result)
+	if err != nil {
+		r.logger.Fatalw(
+			"Could not load systems - Shutting down",
+			zap.String("response", string(bodyBytes)),
+			zap.Error(err),
+		)
+	}
 
 	var deviceIds []string
 	for _, systems := range *result.Systems {

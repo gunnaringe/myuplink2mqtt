@@ -12,6 +12,7 @@
 > I take no responsibility, but hope it can be useful for you.
 > Happy hacking!
 
+
 ## Usage
 
 1. Create a user at https://dev.myuplink.com
@@ -32,11 +33,12 @@
 
    Tip: Trying to use localhost? If on Linux, run with `--network=host`. If on MacOS, use `host.docker.internal` for localhost.
 
-## Home Assistant integration
+gi## Home Assistant integration
 
 It will publish discovery messages to the MQTT broker using topic prefix `homeassistant/`.
 
 Name is currently hard coded to be _Høiax Connected_, and it will in a naive way try to add all found devices as a Høiax Connected water header.
+
 
 ### Entities exposed
 | Entity                                 | Description                                                                             |
@@ -46,9 +48,28 @@ Name is currently hard coded to be _Høiax Connected_, and it will in a naive wa
 | sensor.hoiax_connected_estimated_power | Gauge for current estimatd power usage (W)                                              |
 | sensor.hoiax_connected_stored_energy   | Gauge for current energy stored in the tank (kWh)                                       |
 
+
 ## Limitations
 - No health check endpoint or Docker healtcheck script
 - Will not detect other myuplink devices in a proper way
 - No support to set max effect yet (coming suddenly when kids are sleeping and work is quiet)
 - No customization - Let me know and I'll add proper config for MQTT
 - Architecture is a mess :)
+
+
+## Generate Go client from OpenAPI spec
+```
+# Install oapi-codegen
+go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
+
+# Download spec
+curl -L -o api/swagger.json https://api.myuplink.com/swagger/docs/public-v2/swagger.json
+
+# Generate code
+$HOME/go/bin/oapi-codegen \
+  --package=myuplink \
+  --old-config-style \
+  --generate types,client,spec \
+  api/swagger.json \
+  > pkg/myuplink/myuplink.gen.go
+```

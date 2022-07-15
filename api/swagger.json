@@ -56,7 +56,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/internal/crm/productregistration/{serialNumber}": { },
@@ -113,7 +113,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/devices/{deviceId}/smart-home-categories": {
@@ -391,7 +391,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/devices/{deviceId}/smart-home-zones": {
@@ -462,7 +462,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/devices/{deviceId}/points": {
@@ -526,6 +526,22 @@
                     "$ref": "#/components/schemas/ParameterData"
                   }
                 }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParameterData"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParameterData"
+                  }
+                }
               }
             }
           },
@@ -541,7 +557,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       },
       "patch": {
         "tags": [
@@ -620,6 +636,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/CloudToDeviceMethodResult"
                 }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CloudToDeviceMethodResult"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CloudToDeviceMethodResult"
+                }
               }
             }
           },
@@ -641,7 +667,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/devices/{deviceId}/zones/{zoneId}": {
@@ -693,6 +719,21 @@
               "schema": {
                 "$ref": "#/components/schemas/ZonePatchRequest"
               }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ZonePatchRequest"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ZonePatchRequest"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ZonePatchRequest"
+              }
             }
           }
         },
@@ -741,7 +782,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/devices/{deviceId}/firmware": {
@@ -793,7 +834,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/firmware/{firmwareTypeId}/version/{version}/download": {
@@ -859,7 +900,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/oauth/token": {
@@ -884,7 +925,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/oauth/authorize": {
@@ -909,7 +950,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       },
       "post": {
         "tags": [
@@ -932,7 +973,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/connect/authorize/callback": {
@@ -957,7 +998,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/oauth/login": {
@@ -982,7 +1023,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       },
       "post": {
         "tags": [
@@ -1005,7 +1046,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/oauth/consent": {
@@ -1030,7 +1071,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       },
       "post": {
         "tags": [
@@ -1053,7 +1094,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/oauth/error": {
@@ -1078,7 +1119,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/assets/identity-server/{any}": {
@@ -1113,7 +1154,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/.well-known/openid-configuration": {
@@ -1138,7 +1179,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/.well-known/openid-configuration/jwks": {
@@ -1163,7 +1204,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/systems/{systemId}/notifications/active": {
@@ -1245,7 +1286,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/systems/{systemId}/notifications": {
@@ -1327,7 +1368,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/systems/{systemId}/notifications/{notificationId}": { },
@@ -1354,7 +1395,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/systems/{systemId}/subscriptions": {
@@ -1401,6 +1442,22 @@
                     "$ref": "#/components/schemas/DevicePremiumResponse"
                   }
                 }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DevicePremiumResponse"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DevicePremiumResponse"
+                  }
+                }
               }
             }
           },
@@ -1416,7 +1473,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/productregistration": { },
@@ -1467,6 +1524,8 @@
             "in": "query",
             "description": "Items per page.",
             "schema": {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer",
               "format": "int32",
               "default": 10
@@ -1491,6 +1550,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/PagedSystemResult"
                 }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedSystemResult"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedSystemResult"
+                }
               }
             }
           },
@@ -1506,7 +1575,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     },
     "/v2/systems/{systemId}": { },
@@ -1577,7 +1646,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       },
       "get": {
         "tags": [
@@ -1628,7 +1697,7 @@
             "Client Credentials": [ ]
           }
         ],
-        "authorized-groups":
+        "authorized-groups": 
       }
     }
   },
@@ -1922,12 +1991,11 @@
       },
       "DeviceConnectionState": {
         "enum": [
-          0,
-          1
+          "Disconnected",
+          "Connected"
         ],
-        "type": "integer",
-        "description": "Specifies the different connection states of a device.\r\n0 - Disconnected\r\n1 - Connected",
-        "format": "int32"
+        "type": "string",
+        "description": "Specifies the different connection states of a device.\r\n0 - Disconnected\r\n1 - Connected"
       },
       "DeviceParameterData": {
         "type": "object",
@@ -2009,9 +2077,9 @@
             "$ref": "#/components/schemas/ProductResponseModel"
           },
           "availableFeatures": {
-            "type": "array",
-            "items": {
-              "type": "string"
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
             },
             "description": "Available features.",
             "nullable": true
