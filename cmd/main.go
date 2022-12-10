@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gunnaringe/myuplink2mqtt/internal/admin"
 	"github.com/gunnaringe/myuplink2mqtt/internal/server"
 	"github.com/urfave/cli/v2"
 	"go.uber.org/zap"
@@ -48,6 +49,7 @@ func main() {
 			},
 		},
 		Action: func(c *cli.Context) error {
+			admin.Start()
 			s := server.New(clientId, clientSecret, mqttServer, logger)
 			return s.Run()
 		},

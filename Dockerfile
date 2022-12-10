@@ -16,5 +16,8 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build /etc_passwd /etc/passwd
 USER nobody
 
+COPY        --from=wtfcoderz/static-healthcheck /healthcheck /
+HEALTHCHECK --interval=10s --timeout=2s --start-period=10s --retries=3 CMD ["/healthcheck", "-tcp", "127.0.0.1:8080"]
+
 COPY --from=build /go/bin/app /
 ENTRYPOINT [ "/app"]

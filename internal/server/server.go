@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"github.com/AlekSi/pointer"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/gunnaringe/myuplink2mqtt/internal/admin"
 	"github.com/gunnaringe/myuplink2mqtt/internal/homeassistant"
 	"github.com/gunnaringe/myuplink2mqtt/pkg/auth"
 	"github.com/gunnaringe/myuplink2mqtt/pkg/myuplink"
@@ -30,6 +31,7 @@ type Server struct {
 	mqttClient   mqtt.Client
 	mqttServer   string
 	Auth         *auth.Auth
+	errors       uint32
 }
 
 func New(clientId, clientSecret, mqttServer string, logger *zap.Logger) *Server {
@@ -163,6 +165,7 @@ func (r *Server) Run() error {
 		}
 	}()
 
+	admin.Healthy()
 	select {}
 }
 
@@ -207,8 +210,13 @@ func (r *Server) reportStatus(deviceId string) {
 	params := &myuplink.GetV2DevicesDeviceIdPointsParams{}
 	resp, err := r.client.GetV2DevicesDeviceIdPointsWithResponse(context.Background(), deviceId, params)
 	if err != nil {
+		r.errors++
 		r.logger.Warn("Error fetching status", zap.String("device", deviceId))
+		r.logger.Warn("Errors", zap.Uint32("count", r.errors))
+		return
 	}
+	r.errors = 0
+
 	result := *resp.JSON200
 	parameters := make(map[string]myuplink.ParameterData)
 	for _, data := range result {
