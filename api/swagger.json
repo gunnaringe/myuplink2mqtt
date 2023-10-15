@@ -53,12 +53,21 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
       }
     },
+    "/v2/internal/aithp24/devices/{deviceId}": { },
+    "/v2/internal/aithp24/devices/{deviceId}/users": { },
+    "/v2/internal/aithp24/devices/sync": { },
+    "/v2/internal/aithp24/devices/sync/status": { },
+    "/v2/internal/aithp24/devices/paged": { },
+    "/v2/internal/aithp24/devices/registered/{date}": { },
+    "/v2/internal/aithp24/devices/{deviceId}/installers/{email}": { },
+    "/v2/internal/aithp24/devices/{deviceId}/installers/{email}/approve": { },
     "/v2/internal/crm/productregistration/{serialNumber}": { },
     "/v2/devices/{deviceId}/points/{pointId}/latest": { },
     "/v2/devices/{deviceId}/points/{pointId}/{dateFrom}/{dateTo}/{aggregationMethod}/{aggregationUnit}": { },
@@ -110,7 +119,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -212,6 +222,42 @@
                     },
                     "sh-zoneMode": {
                       "type": "boolean"
+                    },
+                    "sh-electricPowerUsedCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-hwMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorCO2Sp": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-poolSp": {
+                      "type": "boolean"
+                    },
+                    "sh-solarPowerAvailableCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceMode": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceModeDuration": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumidityMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorDeHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-fanMode": {
+                      "type": "boolean"
+                    },
+                    "sh-fanStatus": {
+                      "type": "boolean"
                     }
                   },
                   "additionalProperties": false
@@ -291,6 +337,42 @@
                       "type": "boolean"
                     },
                     "sh-zoneMode": {
+                      "type": "boolean"
+                    },
+                    "sh-electricPowerUsedCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-hwMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorCO2Sp": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-poolSp": {
+                      "type": "boolean"
+                    },
+                    "sh-solarPowerAvailableCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceMode": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceModeDuration": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumidityMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorDeHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-fanMode": {
+                      "type": "boolean"
+                    },
+                    "sh-fanStatus": {
                       "type": "boolean"
                     }
                   },
@@ -372,6 +454,42 @@
                     },
                     "sh-zoneMode": {
                       "type": "boolean"
+                    },
+                    "sh-electricPowerUsedCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-hwMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorCO2Sp": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-poolSp": {
+                      "type": "boolean"
+                    },
+                    "sh-solarPowerAvailableCurrently": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceMode": {
+                      "type": "boolean"
+                    },
+                    "sh-electricalPriceModeDuration": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorHumidityMode": {
+                      "type": "boolean"
+                    },
+                    "sh-indoorDeHumiditySp": {
+                      "type": "boolean"
+                    },
+                    "sh-fanMode": {
+                      "type": "boolean"
+                    },
+                    "sh-fanStatus": {
+                      "type": "boolean"
                     }
                   },
                   "additionalProperties": false
@@ -388,7 +506,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -459,12 +578,15 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
       }
     },
+    "/v2/devices/{deviceId}/product-metadata": { },
+    "/devices/{deviceId}/parameter-metadata": { },
     "/v2/devices/{deviceId}/points": {
       "get": {
         "tags": [
@@ -526,22 +648,6 @@
                     "$ref": "#/components/schemas/ParameterData"
                   }
                 }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ParameterData"
-                  }
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ParameterData"
-                  }
-                }
               }
             }
           },
@@ -554,7 +660,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -637,16 +744,6 @@
                   "$ref": "#/components/schemas/CloudToDeviceMethodResult"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudToDeviceMethodResult"
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudToDeviceMethodResult"
-                }
-              }
             }
           },
           "400": {
@@ -664,7 +761,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -719,21 +817,6 @@
               "schema": {
                 "$ref": "#/components/schemas/ZonePatchRequest"
               }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ZonePatchRequest"
-              }
-            },
-            "text/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ZonePatchRequest"
-              }
-            },
-            "application/*+xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ZonePatchRequest"
-              }
             }
           }
         },
@@ -779,18 +862,99 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
       }
     },
-    "/v2/devices/{deviceId}/firmware": {
+    "/v3/devices/{deviceId}/points": {
+      "get": {
+        "tags": [
+          "DevicePoints"
+        ],
+        "summary": "Get scaled data point for device.",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "path",
+            "description": "Device identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Language (e.g. en-GB).",
+            "schema": {
+              "type": "string",
+              "default": "en-US"
+            }
+          },
+          {
+            "name": "parameters",
+            "in": "query",
+            "description": "Parameter ids separated by comma. Optional parameter:\r\nIf parameter ids are not defined, then all device's parameters will be listed.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParameterData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParameterData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParameterData"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
+          }
+        ],
+        "authorized-groups": 
+      }
+    },
+    "/v2/devices/{deviceId}/firmware-info": {
       "get": {
         "tags": [
           "Firmware"
         ],
-        "summary": "Get available device firmware.",
+        "summary": "Gets brief information about the specified device's firmware.",
         "parameters": [
           {
             "name": "deviceId",
@@ -807,17 +971,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/FirmwareResponse"
+                  "$ref": "#/components/schemas/DeviceFirmwareInfoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FirmwareResponse"
+                  "$ref": "#/components/schemas/DeviceFirmwareInfoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FirmwareResponse"
+                  "$ref": "#/components/schemas/DeviceFirmwareInfoResponse"
                 }
               }
             }
@@ -831,7 +995,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -842,7 +1007,7 @@
         "tags": [
           "Firmware"
         ],
-        "summary": "Download specified firmware file and update firmware metrics (i.e. download count).",
+        "summary": "Download specified firmware file.",
         "parameters": [
           {
             "name": "firmwareTypeId",
@@ -897,7 +1062,83 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
+          }
+        ],
+        "authorized-groups": 
+      }
+    },
+    "/v2/brands/{brandId}/firmware/{firmwareTypeId}/version/{version}/download": {
+      "get": {
+        "tags": [
+          "Firmware"
+        ],
+        "summary": "Download specified firmware file and update firmware metrics (i.e. download count).",
+        "parameters": [
+          {
+            "name": "brandId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "firmwareTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -922,7 +1163,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -947,7 +1189,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -970,7 +1213,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -995,7 +1239,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1020,7 +1265,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1043,7 +1289,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1068,7 +1315,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1091,7 +1339,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1116,7 +1365,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1151,7 +1401,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1176,7 +1427,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1201,7 +1453,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1220,7 +1473,8 @@
             "description": "ID of the system.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1283,7 +1537,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1302,7 +1557,8 @@
             "description": "ID of the system.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1365,7 +1621,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1392,7 +1649,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1411,7 +1669,8 @@
             "description": "The id of the System to search for.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1442,22 +1701,6 @@
                     "$ref": "#/components/schemas/DevicePremiumResponse"
                   }
                 }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DevicePremiumResponse"
-                  }
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DevicePremiumResponse"
-                  }
-                }
               }
             }
           },
@@ -1470,7 +1713,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1481,6 +1725,7 @@
     "/v2/productregistration/getbydate/{date}": { },
     "/v2/productregistration/register/{serialNumber}": { },
     "/v2/productregistration/register": { },
+    "/v2/spotprices/{regionId}": { },
     "/v2/internal/ssg/systems/{systemId}/categories": { },
     "/v2/internal/ssg/systems/{systemId}/categories/data": { },
     "/v2/internal/ssg/systems/search/{serialNumber}": { },
@@ -1501,14 +1746,6 @@
         ],
         "summary": "Get user systems.",
         "parameters": [
-          {
-            "name": "sub",
-            "in": "query",
-            "description": "User Id. (Optional)",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "page",
             "in": "query",
@@ -1550,16 +1787,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/PagedSystemResult"
                 }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedSystemResult"
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedSystemResult"
-                }
               }
             }
           },
@@ -1572,7 +1799,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1594,7 +1822,8 @@
             "description": "The id of the system.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1632,7 +1861,7 @@
             "description": "Not Found"
           },
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "401": {
             "description": "Unauthorized"
@@ -1643,7 +1872,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1660,7 +1890,8 @@
             "description": "The id of the system.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1694,7 +1925,8 @@
         },
         "security": [
           {
-            "Client Credentials": [ ]
+            "Client Credentials": [ ],
+            "Client Credentials AD B2C": [ ]
           }
         ],
         "authorized-groups": 
@@ -1703,6 +1935,67 @@
   },
   "components": {
     "schemas": {
+      "Address": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Default state of empty Address",
+            "nullable": true
+          },
+          "lineOne": {
+            "type": "string",
+            "description": "LineOne",
+            "nullable": true
+          },
+          "lineTwo": {
+            "type": "string",
+            "description": "LineTwo",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "PostalCode",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "City",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "description": "Region",
+            "nullable": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Address model."
+      },
+      "AddressResponseModel": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AggregationMethod": {
         "enum": [
           "Max",
@@ -1818,6 +2111,20 @@
         "description": "Alarm severity enum.",
         "format": "int32"
       },
+      "AlarmStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "datetime": {
+            "type": "integer",
+            "description": "Date of the alarm.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "AlarmsPaged": {
         "type": "object",
         "properties": {
@@ -1848,16 +2155,86 @@
         "additionalProperties": false,
         "description": "Alarms paged."
       },
-      "AlarmStatus": {
+      "AvailableMethods": {
         "type": "object",
         "properties": {
-          "status": {
-            "$ref": "#/components/schemas/Status"
+          "settings": {
+            "type": "boolean"
           },
-          "datetime": {
-            "type": "integer",
-            "description": "Date of the alarm.",
-            "format": "int32"
+          "reboot": {
+            "type": "boolean"
+          },
+          "forcesync": {
+            "type": "boolean"
+          },
+          "forceUpdate": {
+            "type": "boolean"
+          },
+          "requestUpdate": {
+            "type": "boolean"
+          },
+          "resetAlarm": {
+            "type": "boolean"
+          },
+          "triggerEvent": {
+            "type": "boolean"
+          },
+          "getMenu": {
+            "type": "boolean"
+          },
+          "getMenuChain": {
+            "type": "boolean"
+          },
+          "getGuideQuestion": {
+            "type": "boolean"
+          },
+          "sendHaystack": {
+            "type": "boolean"
+          },
+          "setSmartMode": {
+            "type": "boolean"
+          },
+          "setAidMode": {
+            "type": "boolean"
+          },
+          "getZones": {
+            "type": "boolean"
+          },
+          "processIntent": {
+            "type": "boolean"
+          },
+          "boostHotWater": {
+            "type": "boolean"
+          },
+          "boostVentilation": {
+            "type": "boolean"
+          },
+          "getScheduleConfig": {
+            "type": "boolean"
+          },
+          "getScheduleModes": {
+            "type": "boolean"
+          },
+          "getScheduleWeekly": {
+            "type": "boolean"
+          },
+          "getScheduleVacation": {
+            "type": "boolean"
+          },
+          "setScheduleModes": {
+            "type": "boolean"
+          },
+          "setScheduleWeekly": {
+            "type": "boolean"
+          },
+          "setScheduleOverride": {
+            "type": "boolean"
+          },
+          "setScheduleVacation": {
+            "type": "boolean"
+          },
+          "setVentilationMode": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1997,6 +2374,88 @@
         "type": "string",
         "description": "Specifies the different connection states of a device.\r\n0 - Disconnected\r\n1 - Connected"
       },
+      "DeviceFirmwareInfoResponse": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "firmwareId": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentFwVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "pendingFwVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "desiredFwVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceInfoResponseModel": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceInfoResponseModelPagedResult": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceInfoResponseModel"
+            },
+            "nullable": true
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceInfoSyncResponseModel": {
+        "type": "object",
+        "properties": {
+          "syncId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DeviceParameterData": {
         "type": "object",
         "properties": {
@@ -2077,12 +2536,7 @@
             "$ref": "#/components/schemas/ProductResponseModel"
           },
           "availableFeatures": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "boolean"
-            },
-            "description": "Available features.",
-            "nullable": true
+            "$ref": "#/components/schemas/AvailableMethods"
           }
         },
         "additionalProperties": false,
@@ -2105,20 +2559,6 @@
             "type": "string",
             "description": "The EnumIcon of the Enum.",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FirmwareResponse": {
-        "type": "object",
-        "properties": {
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2263,16 +2703,23 @@
             "readOnly": true
           },
           "minValue": {
-            "type": "integer",
+            "type": "number",
             "description": "Parameter min value.",
-            "format": "int32",
+            "format": "double",
             "nullable": true,
             "readOnly": true
           },
           "maxValue": {
-            "type": "integer",
+            "type": "number",
             "description": "Parameter max value.",
-            "format": "int32",
+            "format": "double",
+            "nullable": true,
+            "readOnly": true
+          },
+          "stepValue": {
+            "type": "number",
+            "description": "Parameter step value, specifies the allowed stepping between valid values\r\nwhen the value is numeric.",
+            "format": "double",
             "nullable": true,
             "readOnly": true
           },
@@ -2341,6 +2788,12 @@
             "format": "int32",
             "nullable": true
           },
+          "stepValue": {
+            "type": "integer",
+            "description": "Parameter step value, specifies the allowed stepping between valid values\r\nwhen the value is numeric.",
+            "format": "int32",
+            "nullable": true
+          },
           "enumValues": {
             "type": "array",
             "items": {
@@ -2369,7 +2822,7 @@
           "systemId": {
             "type": "string",
             "description": "Id.",
-            "nullable": true
+            "format": "uuid"
           },
           "name": {
             "type": "string",
@@ -2736,6 +3189,7 @@
           },
           "systemId": {
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "version": {
@@ -2792,6 +3246,24 @@
         ],
         "type": "string",
         "description": "Smart mode enum."
+      },
+      "SpotPriceDeliveryModel": {
+        "required": [
+          "prices"
+        ],
+        "type": "object",
+        "properties": {
+          "prices": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "description": "Dictionary with prices. Key is the start date and time in UTC and the value is the price\r\nin (Currency*100)/MWh"
+          }
+        },
+        "additionalProperties": false
       },
       "SsqGroupDevice": {
         "type": "object",
@@ -2899,7 +3371,7 @@
           "systemId": {
             "type": "string",
             "description": "System identifier.",
-            "nullable": true
+            "format": "uuid"
           },
           "name": {
             "type": "string",
@@ -2941,6 +3413,27 @@
         },
         "additionalProperties": false,
         "description": "Patch group request."
+      },
+      "UserWithAddress": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          }
+        },
+        "additionalProperties": false
       },
       "VoucherManyRequest": {
         "type": "object",

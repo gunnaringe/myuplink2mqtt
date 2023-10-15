@@ -19,7 +19,7 @@
 
 2. Create a new application at https://dev.myuplink.com/apps
 
-   Note: We are going to use OAuth's client credentials flow here, so the callback URI will not be used.
+   Note: We are going to use the OAuth 2.0 client credentials flow here, so the callback URI will not be used.
 
 3. Profit
 
